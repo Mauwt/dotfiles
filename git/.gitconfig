@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = david.jacobo@utec.edu.pe
+	name = mauwt
+[core]
+	editor = vim
