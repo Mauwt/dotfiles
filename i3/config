@@ -330,9 +330,14 @@ set $ws10 "10"
 # you can get from xrandr command
 #workspace $ws1 output VGA-0
 #workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
+workspace $ws1 output eDP
+workspace $ws2 output eDP
+workspace $ws3 output eDP
+workspace $ws4 output eDP
+workspace $ws5 output eDP
+workspace $ws6 output HDMI-A-0
+workspace $ws7 output HDMI-A-0
+workspace $ws8 output HDMI-A-0
 
 # bind program to workspace and focus to them on startup:
 # assign [class="Xfce4-terminal"] $ws1
@@ -340,6 +345,7 @@ set $ws10 "10"
 # assign [class="Thunar"] $ws3
 # assign [class="thunderbird"] $ws4
 # assign [class="TelegramDesktop"] $ws5
+assign [class="zoom"] $ws6
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
@@ -347,7 +353,6 @@ for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
 for_window [class=Thunderbird] focus
 for_window [class=TelegramDesktop] focus
-
 ##############
 # compositor #
 ##############
@@ -406,7 +411,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-# exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
@@ -467,6 +472,9 @@ exec --no-startup-id /usr/bin/dunst
 ##################
 # floating rules #
 ##################
+
+
+for_window [class="zoom"] floating enable
 
 # set floating (nontiling) for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
